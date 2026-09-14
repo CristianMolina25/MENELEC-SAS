@@ -127,6 +127,26 @@ Esto permite que la empresa tenga una plataforma web moderna para trabajar desde
 
 ---
 
+## 🚀 Requisitos Previos
+
+Asegúrate de tener instalado en tu equipo:
+- **Node.js** (para el Frontend)
+- **Java JDK** (versión compatible con Spring Boot)
+- **Maven** (para la ejecución del Backend)
+- **Git**
+
+---
+
+## ⚙️ Configuración y Ejecución Automática
+
+Este repositorio incluye un script en Batch para iniciar todos los servicios del sistema de manera simultánea en Windows sin necesidad de abrir múltiples terminales manualmente.
+
+### Instrucciones de uso:
+
+1. Clona el repositorio en tu máquina local:
+   ```bash
+   git clone [https://github.com/CristianMolina25/MENELEC-SAS.git](https://github.com/CristianMolina25/MENELEC-SAS.git)
+
 ## Estructura del repositorio
 
 ```text
