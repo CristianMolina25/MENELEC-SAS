@@ -1,0 +1,428 @@
+/* ===========================================================
+   ESTILOS GLOBALES Y ESCRITORIO (Pantallas Grandes)
+   =========================================================== */
+
+@media (min-width: 769px) {
+  /* Bloqueamos el scroll del cuerpo principal */
+  .app-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+  }
+
+  /* El sidebar se queda fijo a la izquierda */
+  .sidebar-desktop {
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+  }
+
+  /* Ocultamos las clases móviles en escritorio */
+  .sidebar-mobile-hidden,
+  .sidebar-mobile-visible {
+    transform: none !important;
+    position: sticky !important;
+    display: flex !important;
+  }
+
+  /* El contenedor de la derecha ocupa el resto y no tiene scroll propio */
+  .main-content {
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-left: 0;
+  }
+
+  /* El header se queda bloqueado arriba */
+  .header {
+    flex-shrink: 0;
+    z-index: 10;
+    background-color: #0f172a;
+  }
+
+  /* Solo esta zona tendrá el scroll del contenido */
+  .scroll-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 40px;
+  }
+
+  /* Personalización del scrollbar para escritorio */
+  .scroll-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  .scroll-container::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+  }
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+
+  /* Botón hamburguesa oculto en escritorio */
+  .mobile-toggle {
+    display: none !important;
+  }
+}
+
+/* ===========================================================
+   RESPONSIVE MÓVIL (Pantallas hasta 768px)
+   =========================================================== */
+
+@media (max-width: 768px) {
+  /* 1. Contenedor Principal: Flujo vertical */
+  .app-container {
+    flex-direction: column !important;
+    overflow-x: hidden;
+    height: auto !important;
+  }
+
+  /* 2. Sidebar: Animación lateral (estilos base ya están en el sidebar, aquí solo aseguramos) */
+  .sidebar-desktop {
+    display: none !important; /* Ocultamos la versión estática */
+  }
+  
+  .sidebar-mobile-hidden, 
+  .sidebar-mobile-visible {
+    display: flex !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 280px !important;
+    max-width: 85vw !important;    /* para que no se salga en pantallas muy pequeñas */
+    height: 100vh !important;
+    background: rgba(15, 23, 42, 0.98) !important;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;              /* permite scroll interno si el contenido es largo */
+  }
+
+  .sidebar-mobile-hidden {
+    transform: translateX(-110%);
+  }
+
+  .sidebar-mobile-visible {
+    transform: translateX(0);
+  }
+
+    .sidebar-mobile-hidden .brand-section,
+  .sidebar-mobile-visible .brand-section {
+    flex-wrap: wrap;
+  }
+  .logo-circle {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-title {
+    font-size: 18px;
+  }
+  .nav-item {
+    padding: 10px 12px;
+  }
+  .user-profile {
+    flex-wrap: wrap;
+  }
+
+  /* 3. Contenido Principal en Móvil */
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 15px !important;
+    padding-top: 70px !important; 
+    height: auto !important;
+    min-height: 100vh;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .scroll-container {
+    overflow-y: visible !important;
+    padding: 16px !important;
+  }
+
+  /* 4. Cabecera y KPIs */
+  .header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px;
+    padding: 12px 16px !important;
+    background: rgba(15, 23, 42, 0.9) !important;
+  }
+
+  .system-status {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 8px 12px !important;
+  }
+
+  /* Grid de KPIs: forzamos una columna (necesitas añadir className="kpi-grid" al div que envuelve los KPICard) */
+  .kpi-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  /* 5. Botón Hamburguesa (visible solo en móvil) */
+  .mobile-toggle {
+    display: flex !important;
+    position: fixed !important;
+    top: 15px;
+    right: 20px;
+    z-index: 2100;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: white;
+    width: 52px;
+    height: 52px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  /* 6. Ajustes generales de tarjetas y textos */
+  .welcome-text {
+    font-size: 20px !important;
+  }
+  .rol-badge {
+    font-size: 10px !important;
+  }
+  .kpi-card {
+    padding: 16px !important;
+  }
+  .kpi-value {
+    font-size: 24px !important;
+  }
+  .upcoming-panel {
+    padding: 16px !important;
+  }
+  .task-item {
+    padding: 12px !important;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .banner-circle, .banner-circle2 {
+    display: none;
+  }
+
+  /* 7. Calendario y Tablas */
+  .calendar-card {
+    width: 95% !important;
+    margin: 0 auto !important;
+    padding: 10px !important;
+  }
+  .fc {
+    height: 550px !important;
+  }
+  .fc-toolbar {
+    flex-direction: column !important;
+    gap: 8px;
+  }
+  .fc-daygrid-day-frame {
+    height: 80px !important;
+  }
+
+  /* 8. Formularios (Crear Tarea / Inventario) */
+  .crear-tarea-grid, 
+  .inventario-grid, 
+  .pipeline-grid {
+    grid-template-columns: 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .crear-tarea-card, 
+  .inventario-table-col {
+    width: 100% !important;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+  .pipeline-tab-bar {
+    flex-wrap: wrap;
+  }
+
+  /* Utilidades */
+  .hide-on-print {
+    display: none !important;
+  }
+}
+
+/* ===========================================================
+   ESTILOS DEL SIDEBAR (base para todas las pantallas)
+   =========================================================== */
+
+.sidebar-desktop,
+.sidebar-mobile-hidden,
+.sidebar-mobile-visible {
+  width: 280px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 20px;
+  height: 100vh;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Logo y marca */
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #1e293b;
+  margin-bottom: 24px;
+}
+.logo-circle {
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+.logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.brand-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  font-family: 'Syne', sans-serif;
+}
+.brand-dot {
+  color: #818cf8;
+}
+
+/* Menú */
+.menu-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 1.5px;
+  padding: 0 12px 12px 12px;
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+  color: #94a3b8;
+  border-left: 3px solid transparent;
+}
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.2), transparent);
+  color: #ffffff;
+  border-left-color: #818cf8;
+}
+.icon-wrapper {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color: #64748b;
+}
+.nav-item.active .icon-wrapper {
+  color: #c084fc;
+}
+.nav-label {
+  flex: 1;
+  font-weight: 500;
+}
+.active-arrow {
+  opacity: 0.6;
+}
+.nav-item:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #fff;
+}
+
+/* Footer */
+.sidebar-footer {
+  border-top: 1px solid #1e293b;
+  padding-top: 24px;
+  margin-top: auto;
+}
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(145deg, #6366f1, #4f46e5);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: #fff;
+}
+.user-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+.user-role {
+  font-size: 11px;
+  color: #818cf8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 40px;
+  color: #f87171;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Syne', sans-serif;
+}
+.logout-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+}

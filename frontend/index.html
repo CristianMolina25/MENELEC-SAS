@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/LOGO.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MENELEC SAS</title>
+    <script>
+      // Cargar el script de OnlyOffice API desde la URL fija
+      const onlyOfficeScript = document.createElement('script');
+      // Usar la IP real del servidor ONLYOFFICE (la misma que usas en el backend)
+      onlyOfficeScript.src = 'http://10.187.227.59:9000/web-apps/apps/api/documents/api.js';
+      onlyOfficeScript.async = false;
+      console.log('🔧 Cargando script de OnlyOffice desde:', onlyOfficeScript.src);
+      onlyOfficeScript.onerror = function() {
+        console.error('❌ Error al cargar script de OnlyOffice desde:', onlyOfficeScript.src);
+        console.warn('⚠️  Verifica que OnlyOffice DocumentServer esté corriendo en http://10.187.227.59:9000');
+      };
+      onlyOfficeScript.onload = function() {
+        console.log('✅ Script de OnlyOffice API cargado exitosamente');
+        console.log('📚 DocsAPI disponible:', typeof window.DocsAPI !== 'undefined');
+      };
+      document.head.appendChild(onlyOfficeScript);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

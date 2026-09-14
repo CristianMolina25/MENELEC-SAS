@@ -1,0 +1,101 @@
+:root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+  }
+}
+
+/* RESET DE FULLCALENDAR PARA MENELEC DARK MODE */
+.fc {
+  --fc-border-color: #334155;
+  color: #94a3b8;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Título del Mes */
+.fc .fc-toolbar-title { 
+  font-size: 1.1rem !important; 
+  font-weight: 800; 
+  color: #f1f5f9; 
+  letter-spacing: -0.5px;
+}
+
+/* Botones Navegación (prev, next, today) */
+.fc .fc-button { 
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+  padding: 5px 10px !important; 
+  font-size: 11px !important; 
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  text-transform: capitalize;
+  transition: all 0.2s;
+}
+
+.fc .fc-button:hover { background-color: #1e293b !important; }
+
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: #6366f1 !important;
+  border-color: #6366f1 !important;
+}
+
+/* Celdas y Números */
+.fc-theme-standard td, .fc-theme-standard th { border: 1px solid #1e293b !important; }
+.fc-daygrid-day-number { padding: 6px !important; font-size: 11px; color: #475569; font-weight: 700; }
+.fc-col-header-cell-cushion { color: #64748b; font-size: 11px; text-transform: uppercase; font-weight: 800; padding: 10px 0 !important; }
+
+/* El "Hoy" */
+.fc-day-today { background: rgba(99, 102, 241, 0.04) !important; }
+
+/* EVENTOS ESTILO LINEAR / SLACK */
+.sleek-event {
+  background: rgba(99, 102, 241, 0.15) !important;
+  border-left: 3px solid #6366f1 !important; /* Línea de color a la izquierda */
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+  color: #a5b4fc !important;
+  font-size: 10px !important;
+  padding: 2px 8px !important;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
